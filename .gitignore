@@ -1,0 +1,72 @@
+# ---------- environment ----------
+.env
+.env.local
+.env.*.local
+!.env.example
+!**/.env.example
+
+# ---------- node ----------
+node_modules/
+.pnp
+.pnp.js
+.next/
+out/
+build/
+.swc/
+*.tsbuildinfo
+next-env.d.ts
+
+# ---------- python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ---------- uv ----------
+uv.lock
+
+# ---------- docker ----------
+.docker/
+postgres-data/
+
+# ---------- model artifacts ----------
+backend/artifacts/
+*.pkl
+*.joblib
+!backend/seed/*.pkl
+
+# ---------- IDE ----------
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+.DS_Store
+
+# ---------- logs ----------
+*.log
+logs/
+
+# ---------- alembic ----------
+# Keep migration scripts, ignore local sqlite if anyone uses it
+*.sqlite
+*.db
+
+# ---------- coverage / test ----------
+coverage/
+.nyc_output/
+*.lcov
+
+# ---------- vercel ----------
+.vercel

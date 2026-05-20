@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --paper: #ffffff;
+    --paper-subtle: #faf7ee;
+    --cream: #f5efe0;
+    --navy: #034694;
+    --signal-gold: #f4c430;
+    --signal-red: #c0392b;
+    --signal-green: #2d6a4f;
+    --ink: #0f1a2e;
+    --line: #e6e0d3;
+  }
+
+  html,
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    /* Subtle paper grain — barely-there, professional */
+    background-image:
+      radial-gradient(rgba(15, 26, 46, 0.012) 1px, transparent 1px),
+      radial-gradient(rgba(3, 70, 148, 0.008) 1px, transparent 1px);
+    background-size: 24px 24px, 36px 36px;
+    background-position: 0 0, 12px 18px;
+  }
+
+  ::selection {
+    background: var(--signal-gold);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  .container-narrow {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .surface {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+
+  .surface-deep {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 6px;
+  }
+
+  .label-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(15, 26, 46, 0.55);
+  }
+
+  .label-mono-on-navy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(245, 239, 224, 0.7);
+  }
+
+  .display-serif {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

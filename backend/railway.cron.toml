@@ -1,0 +1,37 @@
+# Railway cron jobs.
+#
+# Add these as separate cron services in the Railway dashboard, pointing
+# to the same backend container. Schedule format is standard cron.
+#
+# Ingest fixtures + results — twice daily
+# 06:00 UTC and 22:00 UTC
+#
+# Train + predict + mine insights — after each ingest
+# 06:30 UTC and 22:30 UTC
+#
+# Backtest — weekly on Mondays at 04:00 UTC
+#
+# Set the start command per cron service:
+#   ingest:    python -m app.jobs.ingest_all
+#   train:     python -m app.jobs.train_models
+#   backtest:  python -m app.jobs.run_backtest
+
+[crons.ingest_morning]
+schedule = "0 6 * * *"
+command  = "python -m app.jobs.ingest_all"
+
+[crons.ingest_evening]
+schedule = "0 22 * * *"
+command  = "python -m app.jobs.ingest_all"
+
+[crons.train_morning]
+schedule = "30 6 * * *"
+command  = "python -m app.jobs.train_models"
+
+[crons.train_evening]
+schedule = "30 22 * * *"
+command  = "python -m app.jobs.train_models"
+
+[crons.backtest_weekly]
+schedule = "0 4 * * 1"
+command  = "python -m app.jobs.run_backtest"

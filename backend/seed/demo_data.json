@@ -1,0 +1,148 @@
+{
+  "competitions": [
+    {"code": "PL", "name": "Premier League", "tier": "LEAGUE"},
+    {"code": "CL", "name": "UEFA Champions League", "tier": "EUROPEAN"},
+    {"code": "EL", "name": "UEFA Europa League", "tier": "EUROPEAN"},
+    {"code": "FAC", "name": "FA Cup", "tier": "CUP"}
+  ],
+  "teams": [
+    {"short_name": "Arsenal", "full_name": "Arsenal FC", "tla": "ARS", "primary_color": "#EF0107", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Aston Villa", "full_name": "Aston Villa FC", "tla": "AVL", "primary_color": "#670E36", "secondary_color": "#94BEE5", "is_premier_league": true},
+    {"short_name": "Bournemouth", "full_name": "AFC Bournemouth", "tla": "BOU", "primary_color": "#DA291C", "secondary_color": "#000000", "is_premier_league": true},
+    {"short_name": "Brentford", "full_name": "Brentford FC", "tla": "BRE", "primary_color": "#E30613", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Brighton", "full_name": "Brighton & Hove Albion FC", "tla": "BHA", "primary_color": "#0057B8", "secondary_color": "#FFCD00", "is_premier_league": true},
+    {"short_name": "Chelsea", "full_name": "Chelsea FC", "tla": "CHE", "primary_color": "#034694", "secondary_color": "#DBA111", "is_premier_league": true},
+    {"short_name": "Crystal Palace", "full_name": "Crystal Palace FC", "tla": "CRY", "primary_color": "#1B458F", "secondary_color": "#C4122E", "is_premier_league": true},
+    {"short_name": "Everton", "full_name": "Everton FC", "tla": "EVE", "primary_color": "#003399", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Fulham", "full_name": "Fulham FC", "tla": "FUL", "primary_color": "#000000", "secondary_color": "#CC0000", "is_premier_league": true},
+    {"short_name": "Ipswich", "full_name": "Ipswich Town FC", "tla": "IPS", "primary_color": "#0044A8", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Leicester", "full_name": "Leicester City FC", "tla": "LEI", "primary_color": "#003090", "secondary_color": "#FDBE11", "is_premier_league": true},
+    {"short_name": "Liverpool", "full_name": "Liverpool FC", "tla": "LIV", "primary_color": "#C8102E", "secondary_color": "#00B2A9", "is_premier_league": true},
+    {"short_name": "Man City", "full_name": "Manchester City FC", "tla": "MCI", "primary_color": "#6CABDD", "secondary_color": "#1C2C5B", "is_premier_league": true},
+    {"short_name": "Man United", "full_name": "Manchester United FC", "tla": "MUN", "primary_color": "#DA291C", "secondary_color": "#FBE122", "is_premier_league": true},
+    {"short_name": "Newcastle", "full_name": "Newcastle United FC", "tla": "NEW", "primary_color": "#241F20", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Nottingham Forest", "full_name": "Nottingham Forest FC", "tla": "NFO", "primary_color": "#DD0000", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "Southampton", "full_name": "Southampton FC", "tla": "SOU", "primary_color": "#D71920", "secondary_color": "#130C0E", "is_premier_league": true},
+    {"short_name": "Tottenham", "full_name": "Tottenham Hotspur FC", "tla": "TOT", "primary_color": "#132257", "secondary_color": "#FFFFFF", "is_premier_league": true},
+    {"short_name": "West Ham", "full_name": "West Ham United FC", "tla": "WHU", "primary_color": "#7A263A", "secondary_color": "#1BB1E7", "is_premier_league": true},
+    {"short_name": "Wolves", "full_name": "Wolverhampton Wanderers FC", "tla": "WOL", "primary_color": "#FDB913", "secondary_color": "#231F20", "is_premier_league": true},
+    {"short_name": "Real Madrid", "full_name": "Real Madrid CF", "tla": "RMA", "primary_color": "#FEBE10", "secondary_color": "#FFFFFF", "is_premier_league": false},
+    {"short_name": "Bayern Munich", "full_name": "FC Bayern München", "tla": "FCB", "primary_color": "#DC052D", "secondary_color": "#FFFFFF", "is_premier_league": false}
+  ],
+  "fixtures_offset_days": [
+    {"home": "Arsenal", "away": "Chelsea", "competition": "PL", "matchday": 38, "venue": "Emirates Stadium", "offset": 1, "hour": 12, "minute": 30, "status": "SCHEDULED"},
+    {"home": "Brighton", "away": "Newcastle", "competition": "PL", "matchday": 38, "venue": "Amex Stadium", "offset": 1, "hour": 15, "minute": 0, "status": "SCHEDULED"},
+    {"home": "Aston Villa", "away": "Wolves", "competition": "PL", "matchday": 38, "venue": "Villa Park", "offset": 1, "hour": 15, "minute": 0, "status": "SCHEDULED"},
+    {"home": "Liverpool", "away": "Crystal Palace", "competition": "PL", "matchday": 38, "venue": "Anfield", "offset": 1, "hour": 17, "minute": 30, "status": "SCHEDULED"},
+    {"home": "Tottenham", "away": "Man United", "competition": "PL", "matchday": 38, "venue": "Tottenham Hotspur Stadium", "offset": 2, "hour": 14, "minute": 0, "status": "SCHEDULED"},
+    {"home": "Man City", "away": "Brentford", "competition": "PL", "matchday": 38, "venue": "Etihad Stadium", "offset": 2, "hour": 16, "minute": 30, "status": "SCHEDULED"},
+    {"home": "Arsenal", "away": "Real Madrid", "competition": "CL", "matchday": null, "venue": "Wembley Stadium", "offset": 5, "hour": 20, "minute": 0, "status": "SCHEDULED"}
+  ],
+  "historical_offset_days": [
+    {"home": "Liverpool", "away": "Brighton", "home_score": 2, "away_score": 1, "competition": "PL", "matchday": 37, "offset": -3, "odds_home": 1.45, "odds_draw": 4.5, "odds_away": 7.0},
+    {"home": "Tottenham", "away": "Crystal Palace", "home_score": 1, "away_score": 1, "competition": "PL", "matchday": 37, "offset": -3, "odds_home": 1.85, "odds_draw": 3.7, "odds_away": 4.2},
+    {"home": "Arsenal", "away": "Newcastle", "home_score": 2, "away_score": 0, "competition": "PL", "matchday": 37, "offset": -4, "odds_home": 1.95, "odds_draw": 3.4, "odds_away": 4.0},
+    {"home": "Wolves", "away": "Aston Villa", "home_score": 0, "away_score": 2, "competition": "PL", "matchday": 37, "offset": -4, "odds_home": 3.8, "odds_draw": 3.5, "odds_away": 2.0},
+    {"home": "Brentford", "away": "Chelsea", "home_score": 1, "away_score": 2, "competition": "PL", "matchday": 37, "offset": -4, "odds_home": 4.2, "odds_draw": 3.6, "odds_away": 1.85},
+    {"home": "Man City", "away": "Bournemouth", "home_score": 3, "away_score": 1, "competition": "PL", "matchday": 37, "offset": -7, "odds_home": 1.25, "odds_draw": 6.5, "odds_away": 11.0},
+    {"home": "Everton", "away": "Fulham", "home_score": 1, "away_score": 1, "competition": "PL", "matchday": 37, "offset": -7, "odds_home": 2.6, "odds_draw": 3.3, "odds_away": 2.8},
+    {"home": "Chelsea", "away": "Liverpool", "home_score": 1, "away_score": 1, "competition": "PL", "matchday": 36, "offset": -10, "odds_home": 3.2, "odds_draw": 3.5, "odds_away": 2.3},
+    {"home": "Newcastle", "away": "Tottenham", "home_score": 2, "away_score": 0, "competition": "PL", "matchday": 36, "offset": -10, "odds_home": 2.0, "odds_draw": 3.6, "odds_away": 3.6},
+    {"home": "Arsenal", "away": "Aston Villa", "home_score": 3, "away_score": 0, "competition": "PL", "matchday": 36, "offset": -11, "odds_home": 1.7, "odds_draw": 4.0, "odds_away": 4.8},
+    {"home": "Man United", "away": "West Ham", "home_score": 2, "away_score": 1, "competition": "PL", "matchday": 36, "offset": -11, "odds_home": 1.9, "odds_draw": 3.7, "odds_away": 4.0},
+    {"home": "Chelsea", "away": "Arsenal", "home_score": 1, "away_score": 2, "competition": "PL", "matchday": 25, "offset": -90, "odds_home": 3.0, "odds_draw": 3.5, "odds_away": 2.4},
+    {"home": "Liverpool", "away": "Man City", "home_score": 2, "away_score": 2, "competition": "PL", "matchday": 25, "offset": -90, "odds_home": 2.6, "odds_draw": 3.4, "odds_away": 2.7},
+    {"home": "Tottenham", "away": "Chelsea", "home_score": 0, "away_score": 1, "competition": "PL", "matchday": 22, "offset": -120, "odds_home": 2.2, "odds_draw": 3.5, "odds_away": 3.2}
+  ],
+  "insights": [
+    {
+      "kind": "player_streak",
+      "subject": "Cole Palmer",
+      "headline": "Cole Palmer has registered 3+ shots in 10 consecutive Premier League appearances.",
+      "detail": "The Chelsea forward's longest such run since joining the club. Average across these games: 4.2 shots and 0.41 xG per match.",
+      "data": {"games": 10, "shots_per_game": 4.2, "xg_per_game": 0.41, "since": "14 Mar"},
+      "notability": 92.0,
+      "is_weighted": false
+    },
+    {
+      "kind": "team_form",
+      "subject": "Aston Villa",
+      "headline": "Aston Villa have scored in the first 20 minutes of 7 of their last 9 home matches.",
+      "detail": "A front-loaded scoring pattern. Opening 20-minute xG (0.68) ranks first in the league over this stretch.",
+      "data": {"games_with_early_goal": 7, "total_home_games": 9, "opening_xg": 0.68},
+      "notability": 85.0,
+      "is_weighted": false
+    },
+    {
+      "kind": "tactical_shift",
+      "subject": "Newcastle",
+      "headline": "Newcastle's away xGA has dropped from 1.4 to 0.9 since changing the back four in February.",
+      "detail": "A 36% reduction in expected goals conceded on the road across an eight-match sample.",
+      "data": {"xga_before": 1.4, "xga_after": 0.9, "sample_size": 8},
+      "notability": 80.0,
+      "is_weighted": false
+    },
+    {
+      "kind": "historic_record",
+      "subject": "Tottenham at Stamford Bridge",
+      "headline": "Tottenham have not won at Stamford Bridge in 12 consecutive Premier League visits.",
+      "detail": "Surfaced for context only — this pattern is not used as a model input. Over the same period the underlying xG difference at the ground has been roughly neutral.",
+      "data": {"visits": 12, "away_wins": 0, "xgd_per_game": -0.04},
+      "notability": 65.0,
+      "is_weighted": false
+    },
+    {
+      "kind": "player_streak",
+      "subject": "Bryan Mbeumo",
+      "headline": "Bryan Mbeumo has been booked in 4 of his last 5 matches against top-six opposition.",
+      "detail": "Fouls committed per game against top-six sides this season is 2.4, versus 1.1 against bottom-half teams.",
+      "data": {"yellow_cards": 4, "top_six_matches": 5, "fouls_per_game_vs_top": 2.4},
+      "notability": 70.0,
+      "is_weighted": false
+    }
+  ],
+  "league_projections": [
+    {"team": "Liverpool", "expected_position": 1.4, "expected_points": 84.3, "title_probability": 0.58, "top_four_probability": 0.99, "relegation_probability": 0.0},
+    {"team": "Arsenal", "expected_position": 2.1, "expected_points": 80.6, "title_probability": 0.31, "top_four_probability": 0.97, "relegation_probability": 0.0},
+    {"team": "Chelsea", "expected_position": 3.3, "expected_points": 73.8, "title_probability": 0.08, "top_four_probability": 0.85, "relegation_probability": 0.0},
+    {"team": "Man City", "expected_position": 4.2, "expected_points": 71.2, "title_probability": 0.03, "top_four_probability": 0.62, "relegation_probability": 0.0},
+    {"team": "Newcastle", "expected_position": 5.1, "expected_points": 66.4, "title_probability": 0.0, "top_four_probability": 0.41, "relegation_probability": 0.0},
+    {"team": "Aston Villa", "expected_position": 6.0, "expected_points": 62.8, "title_probability": 0.0, "top_four_probability": 0.16, "relegation_probability": 0.0},
+    {"team": "Tottenham", "expected_position": 7.4, "expected_points": 58.1, "title_probability": 0.0, "top_four_probability": 0.04, "relegation_probability": 0.0},
+    {"team": "Brighton", "expected_position": 8.6, "expected_points": 55.2, "title_probability": 0.0, "top_four_probability": 0.01, "relegation_probability": 0.0},
+    {"team": "Man United", "expected_position": 9.8, "expected_points": 52.1, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.01},
+    {"team": "Brentford", "expected_position": 11.2, "expected_points": 47.8, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.02},
+    {"team": "Bournemouth", "expected_position": 11.8, "expected_points": 46.5, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.03},
+    {"team": "Fulham", "expected_position": 12.4, "expected_points": 44.9, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.04},
+    {"team": "Crystal Palace", "expected_position": 13.6, "expected_points": 42.3, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.06},
+    {"team": "West Ham", "expected_position": 14.1, "expected_points": 40.7, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.09},
+    {"team": "Nottingham Forest", "expected_position": 15.2, "expected_points": 38.4, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.16},
+    {"team": "Wolves", "expected_position": 16.4, "expected_points": 35.6, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.30},
+    {"team": "Everton", "expected_position": 17.2, "expected_points": 33.8, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.46},
+    {"team": "Leicester", "expected_position": 18.4, "expected_points": 28.4, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.74},
+    {"team": "Ipswich", "expected_position": 19.1, "expected_points": 24.6, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.86},
+    {"team": "Southampton", "expected_position": 19.7, "expected_points": 19.3, "title_probability": 0.0, "top_four_probability": 0.0, "relegation_probability": 0.94}
+  ],
+  "backtest": {
+    "model_name": "ensemble",
+    "season_start": 2020,
+    "season_end": 2024,
+    "n_predictions": 847,
+    "brier_score": 0.198,
+    "log_loss": 0.962,
+    "top_pick_accuracy": 0.546,
+    "market_brier": 0.194,
+    "market_log_loss": 0.951,
+    "simulated_pnl_units": -7.4,
+    "simulated_roi_pct": -2.3,
+    "calibration_bins": [
+      {"bin_lower": 0.30, "bin_upper": 0.40, "predicted": 0.35, "actual": 0.33, "count": 124},
+      {"bin_lower": 0.40, "bin_upper": 0.50, "predicted": 0.45, "actual": 0.46, "count": 168},
+      {"bin_lower": 0.50, "bin_upper": 0.60, "predicted": 0.55, "actual": 0.54, "count": 187},
+      {"bin_lower": 0.60, "bin_upper": 0.70, "predicted": 0.65, "actual": 0.68, "count": 142},
+      {"bin_lower": 0.70, "bin_upper": 0.80, "predicted": 0.75, "actual": 0.73, "count": 96},
+      {"bin_lower": 0.80, "bin_upper": 0.90, "predicted": 0.85, "actual": 0.86, "count": 81},
+      {"bin_lower": 0.90, "bin_upper": 1.00, "predicted": 0.94, "actual": 0.92, "count": 49}
+    ]
+  }
+}

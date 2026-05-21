@@ -18,20 +18,20 @@
 
 [crons.ingest_morning]
 schedule = "0 6 * * *"
-command  = "python -m app.jobs.ingest_all"
+command  = "uv run python -m app.jobs.ingest_all"
 
 [crons.ingest_evening]
 schedule = "0 22 * * *"
-command  = "python -m app.jobs.ingest_all"
+command  = "uv run python -m app.jobs.ingest_all"
 
 [crons.train_morning]
 schedule = "30 6 * * *"
-command  = "python -m app.jobs.train_models"
+command  = "uv run python -m app.jobs.train_models"
 
 [crons.train_evening]
 schedule = "30 22 * * *"
-command  = "python -m app.jobs.train_models"
+command  = "uv run python -m app.jobs.train_models"
 
 [crons.backtest_weekly]
 schedule = "0 4 * * 1"
-command  = "python -m app.jobs.run_backtest"
+command  = "uv run python -m app.jobs.run_backtest"

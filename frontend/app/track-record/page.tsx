@@ -2,7 +2,7 @@ import { api } from '@/lib/api';
 import { PageHeader } from '@/components/PageHeader';
 import { SectionLabel } from '@/components/SectionLabel';
 import { CalibrationChart } from '@/components/CalibrationChart';
-import { formatProb } from '@/lib/utils';
+import { cn, formatProb } from '@/lib/utils';
 
 export const revalidate = 0;
 
@@ -26,16 +26,16 @@ export default async function TrackRecordPage() {
 
       {!s || s.n_predictions === 0 ? (
         <div className="surface p-8 text-center text-sm text-ink/55">
-          No backtest results yet. Run <code className="font-mono">make backtest</code> to
-          populate.
+          No backtest results yet. Run <code className="font-mono">make backtest</code> to populate.
         </div>
       ) : (
         <>
-          <div className="mb-9 grid grid-cols-2 gap-px overflow-hidden rounded-md border border-line bg-line sm:grid-cols-4">
+          <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
             <SummaryStat
               label="Predictions"
               value={s.n_predictions.toLocaleString()}
               sub={`${s.model_name} · seasons ${s.season_range}`}
+              accent="navy"
             />
             <SummaryStat
               label="Brier Score"
@@ -45,55 +45,82 @@ export default async function TrackRecordPage() {
                   ? `lower is better · market ${s.market_brier.toFixed(3)}`
                   : 'lower is better'
               }
+              comparison={
+                s.market_brier !== null
+                  ? s.brier_score < s.market_brier
+                    ? 'better'
+                    : 'worse'
+                  : undefined
+              }
             />
             <SummaryStat
               label="Top-pick Accuracy"
               value={formatProb(s.top_pick_accuracy)}
               sub="vs random 33%"
+              accent="navy"
             />
             <SummaryStat
               label="Log Loss"
               value={s.log_loss.toFixed(3)}
-              sub={
+              sub={s.market_log_loss !== null ? `market ${s.market_log_loss.toFixed(3)}` : '—'}
+              comparison={
                 s.market_log_loss !== null
-                  ? `market ${s.market_log_loss.toFixed(3)}`
-                  : '—'
+                  ? s.log_loss < s.market_log_loss
+                    ? 'better'
+                    : 'worse'
+                  : undefined
               }
             />
           </div>
 
-          <div className="surface mb-9 px-7 py-7">
+          <div className="surface mb-10 px-7 py-7">
             <h2 className="display-serif mb-1 text-2xl">Calibration Curve</h2>
             <p className="mb-6 font-serif text-sm italic text-ink/60">
-              How often the predicted probability matches the actual outcome rate. Points near the
-              diagonal mean the model is well-calibrated.
+              How often the predicted probability matches the actual outcome rate. Points near the diagonal mean the model is well-calibrated.
             </p>
             <CalibrationChart bins={s.calibration_bins} />
           </div>
 
           {s.simulated_pnl_units !== null && s.simulated_roi_pct !== null && (
-            <div className="surface mb-9 border-l-4 border-l-signal-gold px-7 py-6">
-              <div className="label-mono mb-2 text-signal-red">For Research Only</div>
-              <h3 className="display-serif mb-2 text-xl">Simulated Betting P&amp;L</h3>
-              <p className="mb-4 max-w-prose font-serif text-sm leading-relaxed italic text-ink/70">
-                A simulated flat-staking strategy applied to the model&rsquo;s value picks (where
-                its probability exceeds the market&rsquo;s implied probability by 2pp or more)
-                against closing odds. This is a model evaluation tool, not betting advice. Past
-                results would not predict future results.
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <div className="label-mono mb-1">P&amp;L (units)</div>
-                  <div className="display-serif text-2xl">
-                    {s.simulated_pnl_units >= 0 ? '+' : ''}
-                    {s.simulated_pnl_units.toFixed(1)}
+            <div className="mb-10 overflow-hidden rounded-md border border-line bg-paper">
+              <div className="border-b border-line bg-signal-gold/10 px-7 py-3">
+                <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-signal-red">
+                  For Research Only
+                </span>
+              </div>
+              <div className="px-7 py-6">
+                <h3 className="display-serif mb-2 text-xl">Simulated Betting P&amp;L</h3>
+                <p className="mb-5 max-w-prose font-serif text-sm leading-relaxed italic text-ink/65">
+                  A simulated flat-staking strategy applied to the model&rsquo;s value picks (where its probability exceeds the market&rsquo;s implied probability by 2pp or more) against closing odds. This is a model evaluation tool, not betting advice. Past results would not predict future results.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/55">
+                      P&amp;L (units)
+                    </div>
+                    <div
+                      className={cn(
+                        'display-serif text-3xl',
+                        s.simulated_pnl_units >= 0 ? 'text-signal-green' : 'text-signal-red'
+                      )}
+                    >
+                      {s.simulated_pnl_units >= 0 ? '+' : ''}
+                      {s.simulated_pnl_units.toFixed(1)}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <div className="label-mono mb-1">ROI</div>
-                  <div className="display-serif text-2xl">
-                    {s.simulated_roi_pct >= 0 ? '+' : ''}
-                    {s.simulated_roi_pct.toFixed(1)}%
+                  <div>
+                    <div className="mb-1 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/55">
+                      ROI
+                    </div>
+                    <div
+                      className={cn(
+                        'display-serif text-3xl',
+                        s.simulated_roi_pct >= 0 ? 'text-signal-green' : 'text-signal-red'
+                      )}
+                    >
+                      {s.simulated_roi_pct >= 0 ? '+' : ''}
+                      {s.simulated_roi_pct.toFixed(1)}%
+                    </div>
                   </div>
                 </div>
               </div>
@@ -113,6 +140,7 @@ export default async function TrackRecordPage() {
                       {new Date(row.date).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'short',
+                        timeZone: 'UTC',
                       })}
                     </div>
                     <div>
@@ -144,16 +172,39 @@ function SummaryStat({
   label,
   value,
   sub,
+  accent,
+  comparison,
 }: {
   label: string;
   value: string;
   sub: string;
+  accent?: 'navy';
+  comparison?: 'better' | 'worse';
 }) {
   return (
-    <div className="bg-paper px-5 py-5">
-      <div className="label-mono mb-2">{label}</div>
-      <div className="display-serif text-2xl leading-none">{value}</div>
-      <div className="mt-1.5 font-mono text-[10px] text-ink/45">{sub}</div>
+    <div
+      className={cn(
+        'relative overflow-hidden rounded-md border border-line bg-paper px-5 py-5',
+        accent === 'navy' && 'border-t-[3px] border-t-navy'
+      )}
+    >
+      <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.15em] text-ink/55">
+        {label}
+      </div>
+      <div className="flex items-baseline gap-2">
+        <div className="display-serif text-3xl leading-none">{value}</div>
+        {comparison && (
+          <span
+            className={cn(
+              'font-mono text-[10px] font-semibold uppercase tracking-wider',
+              comparison === 'better' ? 'text-signal-green' : 'text-signal-red'
+            )}
+          >
+            {comparison === 'better' ? '↑ beat market' : '↓ vs market'}
+          </span>
+        )}
+      </div>
+      <div className="mt-2 font-mono text-[10px] text-ink/45">{sub}</div>
     </div>
   );
 }
@@ -167,7 +218,7 @@ function ResultPill({ result }: { result: 'hit' | 'miss' | 'pending' }) {
   const label = { hit: 'Hit', miss: 'Miss', pending: '—' }[result];
   return (
     <span
-      className={`rounded-sm px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-wider ${map[result]}`}
+      className={`rounded-sm px-2 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.1em] ${map[result]}`}
     >
       {label}
     </span>

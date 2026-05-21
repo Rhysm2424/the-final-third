@@ -15,6 +15,10 @@ export function formatXg(x: number | null | undefined): string {
   return x.toFixed(2);
 }
 
+// All date formatting locks the timezone to UTC so server-side and
+// client-side renders match exactly (avoids hydration mismatches).
+const TZ = 'UTC';
+
 export function formatKickoff(iso: string): {
   weekday: string;
   date: string;
@@ -22,9 +26,18 @@ export function formatKickoff(iso: string): {
   full: string;
 } {
   const d = new Date(iso);
-  const weekday = d.toLocaleDateString('en-GB', { weekday: 'short' });
-  const date = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-  const time = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
+  const weekday = d.toLocaleDateString('en-GB', { weekday: 'short', timeZone: TZ });
+  const date = d.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    timeZone: TZ,
+  });
+  const time = d.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    timeZone: TZ,
+  });
   const full = `${weekday}, ${date} · ${time}`;
   return { weekday, date, time, full };
 }

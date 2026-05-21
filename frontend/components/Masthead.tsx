@@ -13,23 +13,31 @@ const NAV = [
 
 export function Masthead() {
   const pathname = usePathname();
-  const today = new Date().toLocaleDateString('en-GB', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-  });
+  const today = new Date()
+    .toLocaleDateString('en-GB', {
+      weekday: 'short',
+      day: 'numeric',
+      month: 'long',
+      timeZone: 'UTC',
+    })
+    .toUpperCase();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-cream/90 backdrop-blur supports-[backdrop-filter]:bg-cream/75">
-      <div className="container-narrow flex items-baseline justify-between gap-4 pb-2 pt-3.5">
-        <Link href="/" className="flex items-baseline gap-2">
-          <span className="display-serif text-2xl italic">
-            The Final<span className="text-navy">.</span>Third
+    <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-navy/95 bg-navy">
+      <div className="container-narrow flex items-center justify-between gap-4 py-3.5">
+        <Link href="/" className="group flex items-baseline gap-2.5">
+          <span className="grid h-7 w-7 place-items-center rounded-sm bg-signal-gold font-serif text-base font-bold leading-none text-navy">
+            ⅓
+          </span>
+          <span className="display-serif text-xl text-cream sm:text-2xl">
+            The Final<span className="text-signal-gold">.</span>Third
           </span>
         </Link>
-        <span className="label-mono hidden sm:inline">{today}</span>
+        <span className="hidden font-mono text-[10px] uppercase tracking-[0.15em] text-cream/55 sm:inline">
+          {today}
+        </span>
       </div>
-      <nav className="container-narrow scrollbar-hide flex gap-0 overflow-x-auto">
+      <nav className="container-narrow scrollbar-hide flex gap-0 overflow-x-auto border-t border-cream/10">
         {NAV.map((item) => {
           const active =
             item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
@@ -38,10 +46,10 @@ export function Masthead() {
               key={item.href}
               href={item.href}
               className={cn(
-                'border-b-2 px-4 py-3 font-sans text-xs font-semibold uppercase tracking-wider transition-colors',
+                'relative border-b-2 px-4 py-3 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors',
                 active
-                  ? 'border-navy text-ink'
-                  : 'border-transparent text-ink/50 hover:text-ink'
+                  ? 'border-signal-gold text-cream'
+                  : 'border-transparent text-cream/55 hover:text-cream'
               )}
             >
               {item.label}

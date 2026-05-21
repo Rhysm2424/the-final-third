@@ -52,6 +52,7 @@ function groupByDay(fixtures: MatchSummary[]): Record<string, MatchSummary[]> {
           weekday: 'long',
           day: 'numeric',
           month: 'long',
+          timeZone: 'UTC',
         }) +
         ` — ${m.competition.name}`;
       if (!acc[label]) acc[label] = [];

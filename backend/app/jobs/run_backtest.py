@@ -27,7 +27,7 @@ def _season_from_date(d) -> int:
     A season runs Aug→May, so anything from August onwards is that year,
     anything before is the previous year.
     """
-    return d.year if d.month >= 8 else d.year - 1
+    return int(d.year) if d.month >= 8 else int(d.year) - 1
 
 
 async def run() -> int:

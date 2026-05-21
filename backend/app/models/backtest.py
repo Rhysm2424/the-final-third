@@ -71,7 +71,8 @@ def _odds_to_probs(o_h: float, o_d: float, o_a: float) -> np.ndarray | None:
     if any(o is None or o <= 1.01 for o in (o_h, o_d, o_a)):
         return None
     raw = np.array([1 / o_h, 1 / o_d, 1 / o_a])
-    return raw / raw.sum()
+    result: np.ndarray = raw / raw.sum()
+    return result
 
 
 def _simulate_pnl(probs: np.ndarray, outcomes: np.ndarray, odds: np.ndarray) -> tuple[float, float]:

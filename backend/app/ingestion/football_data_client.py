@@ -39,7 +39,8 @@ class FootballDataOrgClient:
     async def get_competition(self, code: str) -> dict[str, Any]:
         r = await self._client.get(f"/competitions/{code}")
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data
 
     async def get_competition_matches(
         self,
@@ -60,14 +61,17 @@ class FootballDataOrgClient:
             params["dateTo"] = date_to
         r = await self._client.get(f"/competitions/{code}/matches", params=params)
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data
 
     async def get_competition_teams(self, code: str) -> dict[str, Any]:
         r = await self._client.get(f"/competitions/{code}/teams")
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data
 
     async def get_competition_standings(self, code: str) -> dict[str, Any]:
         r = await self._client.get(f"/competitions/{code}/standings")
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data

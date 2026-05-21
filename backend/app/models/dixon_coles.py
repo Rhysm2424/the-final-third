@@ -130,7 +130,7 @@ class DixonColesModel(BaseModel):
             tau = np.clip(tau, 1e-6, None)
 
             ll = w * (ll_h + ll_a + np.log(tau))
-            return -ll.sum()
+            return float(-ll.sum())
 
         # Initial guess
         x0 = np.concatenate(

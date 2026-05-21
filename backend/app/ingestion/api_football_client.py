@@ -46,14 +46,17 @@ class APIFootballClient:
             params["date"] = date
         r = await self._client.get("/fixtures", params=params)
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data
 
     async def get_lineups(self, fixture_id: int) -> dict[str, Any]:
         r = await self._client.get("/fixtures/lineups", params={"fixture": fixture_id})
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data
 
     async def get_odds(self, fixture_id: int) -> dict[str, Any]:
         r = await self._client.get("/odds", params={"fixture": fixture_id})
         r.raise_for_status()
-        return r.json()
+        data: dict[str, Any] = r.json()
+        return data

@@ -134,9 +134,11 @@ async def run() -> int:
         ]
         df = pd.DataFrame(history_rows)
 
-        model = DixonColesModel()
+        model: DixonColesModel | None
         try:
-            model.fit(df)
+            _model = DixonColesModel()
+            _model.fit(df)
+            model = _model
         except Exception as e:
             log.warning("seed.model_fit_failed", error=str(e))
             model = None
@@ -208,13 +210,13 @@ async def run() -> int:
         # League projections
         pl_id = comp_map["PL"].id
         for proj in data["league_projections"]:
-            team = team_map.get(proj["team"])
-            if not team:
+            proj_team: Team | None = team_map.get(proj["team"])
+            if proj_team is None:
                 continue
             db.add(
                 LeagueProjection(
                     competition_id=pl_id,
-                    team_id=team.id,
+                    team_id=proj_team.id,
                     expected_position=proj["expected_position"],
                     expected_points=proj["expected_points"],
                     title_probability=proj["title_probability"],
